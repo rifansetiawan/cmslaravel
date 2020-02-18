@@ -39,7 +39,7 @@
                     <td><img height="50" src="{{'http://placehold.it/400x400'}}" alt=""></td>
                     @endif
 
-                    <td>{{$post->title}}</td>
+                    <td><a href="{{ route('admin.posts.edit', $post->id) }}">{{$post->title}}</a></td>
                     <td>{{$post->body}}</td>
                     <td>{{$post->created_at->diffForHumans()}}</td>
                     <td>{{$post->updated_at->diffForHumans()}}</td>

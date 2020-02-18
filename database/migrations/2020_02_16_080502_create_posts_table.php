@@ -14,13 +14,17 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned()->index();
-            $table->integer('category_id')->unsigned()->index();
-            $table->integer('photo_id')->unsigned()->index();
+            $table->increments('id');
+            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('category_id')->index();
+            $table->unsignedBigInteger('photo_id')->index();
             $table->string('title');
             $table->text('body');
             $table->timestamps();
+
+            // tolong dong hapus post yang ada di table ini, dengan reference dari user_id dr table user
+            $table -> foreign('user_id')->references('id')->on('users')->onDelete('cascade')->unsigned();
+
         });
     }
 
