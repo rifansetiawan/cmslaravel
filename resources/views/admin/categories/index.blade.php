@@ -39,7 +39,9 @@
                                         <td>{{$category->name}}</td>
                                         <td>{{$category->created_at ? $category -> created_at ->diffForHumans() : "No Time"}}</td>
                                         <td>
-                                            <a href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>
+                                            <a href="{{ route('admin.categories.edit', $category->id) }}">
+                                                <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

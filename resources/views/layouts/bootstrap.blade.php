@@ -34,11 +34,12 @@
       <div class="sidebar-heading">Start Bootstrap </div>
       <div class="list-group list-group-flush">
         <a href="{{ route('admin.users.index') }}" class="list-group-item list-group-item-action bg-light">All Users</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Create User</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        <a href="{{ route('admin.users.create') }}" class="list-group-item list-group-item-action bg-light">Create User</a>
+        <a href="{{ route('admin.posts.index')  }}" class="list-group-item list-group-item-action bg-light">All Posts</a>
+        <a href="{{ route('admin.posts.create')  }}" class="list-group-item list-group-item-action bg-light">Create Posts</a>
+        <a href="{{ route('admin.categories.index') }}" class="list-group-item list-group-item-action bg-light">Categories</a>
+        <a href="{{ route('admin.media.index') }}" class="list-group-item list-group-item-action bg-light">Media</a>
+        <a href="{{ route('admin.media.create') }}" class="list-group-item list-group-item-action bg-light">Upload Media</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

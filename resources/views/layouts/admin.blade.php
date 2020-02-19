@@ -23,6 +23,8 @@
   <!-- Custom styles for this template -->
   <link href="{{ asset('bootstrap/css/simple-sidebar.css') }}" rel="stylesheet">
   <link href="{{asset('css/gambar.css')}}" rel="stylesheet">
+
+  @yield('stylecss')
   {{-- dari edwin --}}
   {{-- <link href="{{asset('css/app.css')}}" rel="stylesheet"> --}}
   <script src="{{asset('js/libs.js')}}"></script>
@@ -45,7 +47,8 @@
         <a href="{{ route('admin.posts.index')  }}" class="list-group-item list-group-item-action bg-light">All Posts</a>
         <a href="{{ route('admin.posts.create')  }}" class="list-group-item list-group-item-action bg-light">Create Posts</a>
         <a href="{{ route('admin.categories.index') }}" class="list-group-item list-group-item-action bg-light">Categories</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        <a href="{{ route('admin.media.index') }}" class="list-group-item list-group-item-action bg-light">Media</a>
+        <a href="{{ route('admin.media.create') }}" class="list-group-item list-group-item-action bg-light">Upload Media</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -139,7 +142,7 @@
   <script src="{{ asset('bootstrap/vendor/jquery/jquery.min.js') }}"></script>
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <script src="{{ asset('bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+  @yield('javascript')
   <!-- Menu Toggle Script -->
   <script>
     $("#menu-toggle").click(function(e) {

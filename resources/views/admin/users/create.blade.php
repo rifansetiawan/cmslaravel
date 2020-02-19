@@ -35,6 +35,7 @@
 
     <div class="form-group">
         {!! Form::label('photos_id','Photo : ') !!}
+        <br>
         {!! Form::file('photos_id', null,['class'=>'form-control']) !!}
     </div>
 
