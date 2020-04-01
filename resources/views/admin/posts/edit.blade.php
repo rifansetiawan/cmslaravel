@@ -6,12 +6,19 @@
 
 @section('konten-admin')
 
+    @include('includes.tinyeditor')
+
 
 
     <div class="row">
 
     <div class="col-sm-4">
-        <img src="{{$post->photo->file}}" alt="">
+        @if ($post->photo)
+            <img height="100" src="{{$post->photo->file}}" alt="">
+        @else
+            <img height="50" src="{{'http://placehold.it/400x400'}}" alt="">
+        @endif
+
     </div>
 
     {!! Form::model($post,['method'=>'PATCH','action'=>['AdminPostsController@update',$post->id], 'files'=>true]) !!}
@@ -28,7 +35,7 @@
 
     <div class='form-group'>
     {!! Form::label('photo_id','Photo : ') !!}
-    {!! Form::file('photo_id',null, ['class'=>'form-control']) !!}
+    {!! Form::file('photo_id',null, ['class'=>['form-control']]) !!}
     </div>
 
     <div class='form-group'>

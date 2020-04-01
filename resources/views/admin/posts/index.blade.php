@@ -4,6 +4,7 @@
     <h2>Posts</h2>
 @endsection
 
+
 @section('konten-admin')
 
     <table class='table table-hover'>
@@ -43,6 +44,9 @@
                     <td>{{$post->body}}</td>
                     <td>{{$post->created_at->diffForHumans()}}</td>
                     <td>{{$post->updated_at->diffForHumans()}}</td>
+                    <td><a href="{{ route('home.post', $post->slug) }}">View Post</a></td>
+                    {{-- <td><a href="{{ route('admin.comments.index') }}">View All Comment</a></td> --}}
+                    <td><a href="{{ route('admin.replies.show', $post->id) }}">View Comments of This Post</a></td>
                 </tr>
 
                 @endforeach
@@ -51,5 +55,11 @@
 
         </tbody>
     </table>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-2 col-sm-offset-2">
+            {{$posts->render()}}
+        </div>
+    </div>
 
 @endsection

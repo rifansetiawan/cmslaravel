@@ -35,3 +35,12 @@
 .toppad
 {margin-top:20px;
 }
+
+.image-wrapper {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 10px 0;
+  }

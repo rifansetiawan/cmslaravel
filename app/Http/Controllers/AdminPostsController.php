@@ -7,11 +7,32 @@ use App\Http\Requests\PostsCreateRequests;
 use App\Photo;
 use App\Post;
 use App\User;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Database\Eloquent\Model;
 
 class AdminPostsController extends Controller
 {
+
+    use Sluggable;
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+                'onUpdate' => true,
+            ]
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +41,7 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::paginate(3);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -62,6 +83,7 @@ class AdminPostsController extends Controller
         $user->posts()->create($input);
 
         return redirect('/admin/posts');
+
     }
 
     /**
@@ -102,6 +124,7 @@ class AdminPostsController extends Controller
         // $post = Post::findOrFail($id);
         $input = $request->all();
 
+
         if($file = $request->file('photo_id')){
             $name = $file->getClientOriginalName();
             $file->move('images',$name);
@@ -129,5 +152,14 @@ class AdminPostsController extends Controller
         }
         $post->delete();
         return redirect('admin/posts');
+    }
+
+    public function post($slug){
+
+        $post = Post::where('slug','=',$slug)->firstOrFail();
+        $comments = $post->comments()->whereIsActive(1)->get();
+
+
+        return view('post', compact('post','comments'));
     }
 }

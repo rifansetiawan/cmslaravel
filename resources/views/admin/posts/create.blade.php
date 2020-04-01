@@ -4,8 +4,10 @@
     <h2>Create Posts</h2>
 @endsection
 
-@section('konten-admin')
 
+
+@section('konten-admin')
+    @include('includes.tinyeditor')
 
     {!! Form::open(['method'=>'POST','action'=>'AdminPostsController@store', 'files'=>true]) !!}
 

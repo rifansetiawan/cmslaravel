@@ -46,6 +46,8 @@
         <a href="{{ route('admin.users.create') }}" class="list-group-item list-group-item-action bg-light">Create User</a>
         <a href="{{ route('admin.posts.index')  }}" class="list-group-item list-group-item-action bg-light">All Posts</a>
         <a href="{{ route('admin.posts.create')  }}" class="list-group-item list-group-item-action bg-light">Create Posts</a>
+        <a href="{{ route('admin.comments.index') }}" class="list-group-item list-group-item-action bg-light">All Comments</a>
+        {{-- <a href="{{ route('admin.comments.replies.index') }}" class="list-group-item list-group-item-action bg-light">All Replies</a> --}}
         <a href="{{ route('admin.categories.index') }}" class="list-group-item list-group-item-action bg-light">Categories</a>
         <a href="{{ route('admin.media.index') }}" class="list-group-item list-group-item-action bg-light">Media</a>
         <a href="{{ route('admin.media.create') }}" class="list-group-item list-group-item-action bg-light">Upload Media</a>
